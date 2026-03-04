@@ -131,7 +131,7 @@ WANDERLUST/
 
 1️⃣ Clone Repository
 ```
-git clone https://github.com/Prjhage/Wanderlust.git
+git clone https://github.com/VaibhavSingh2006/Wanderlust.git
 cd Wanderlust
 ```
 
@@ -214,8 +214,8 @@ Trending, Rooms, Castles, Farms, Arctic, Camping, Forest, Lakefront, Beach, Coun
 
 ## 👨‍💻 Author
 
-Prajwal Hage
-GitHub: https://github.com/Prjhage
+Vaibhav Singh
+GitHub: https://github.com/VaibhavSingh2006
 
 
 ## ⭐ Support
