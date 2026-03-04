@@ -1,0 +1,189 @@
+<% layout("./layouts/boilerplate") -%>
+<script>
+  const mapToken = "<%=mapToken%>";
+  const listingData = <%- JSON.stringify(listing) %>;
+</script>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3><%= listing.title %></h3>
+  </div>
+  <div class="card col-8 offset-2 show-card">
+    <img
+      src="<%= listing.image?.url %>"
+      class="card-img-top show-img mt-2"
+      alt="listing_image"
+      onerror="this.onerror=null; this.src='/images/fallback.jpg';"
+    />
+    <div class="card-body">
+      <p class="card-text">
+        <i>
+          <% if (listing.Owner) { %> Owned By <%= listing.Owner.username %> <% }
+          else { %> Owned By Unknown <% } %>
+        </i>
+      </p>
+
+      <p class="card-text"><%= listing.description %></p>
+
+      <p class="card-text">
+        &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+      </p>
+      <p class="card-text"><%=listing.category%></p>
+
+      <p class="card-text"><%= listing.location %></p>
+
+      <p class="card-text"><%= listing.country %></p>
+    </div>
+  </div>
+  <div class="col-8 offset-2">
+    <% if (currUser && listing.Owner && currUser._id.equals(listing.Owner._id))
+    { %>
+    <div class="btns mt-3 mb-3">
+      <a
+        href="/listings/<%= listing._id %>/edit"
+        class="btn btn-dark edit-btn offset-3"
+      >
+        Edit
+      </a>
+
+      <form
+        action="/listings/<%= listing._id %>?_method=DELETE"
+        method="POST"
+        class="d-inline"
+      >
+        <button class="btn btn-dark offset-5">Delete</button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+
+  <div class="col-8 offset-2 mt-3">
+    <%#if (currUser && listing.Owner &&
+       currUser._id.toString() !== listing.Owner._id.toString()) { %>
+    <div class="booking-card">
+
+  <div class="booking-info">
+    <div class="booking-price">
+      ₹ <%= listing.price.toLocaleString("en-IN") %>
+      <span>/night</span>
+    </div>
+    <div class="booking-location">
+      📍 <%= listing.location %>, <%= listing.country %>
+    </div>
+  </div>
+
+  <a href="/listings/<%= listing._id %>/book"
+     class="premium-book-btn">
+     Book Your Stay →
+  </a>
+
+</div>
+    <hr />
+    <div class="review-form-card">
+
+  <h4 class="review-form-title">Leave a Review</h4>
+
+  <form action="/listings/<%= listing._id %>/reviews"
+        method="POST"
+        novalidate>
+
+    <!-- Rating -->
+    <div class="form-group">
+      <label class="form-label">Your Rating</label>
+
+      <fieldset class="starability-slot custom-stars">
+        <input type="radio" id="no-rate" class="input-no-rate"
+               name="review[rating]" value="0" checked />
+
+        <input type="radio" id="rate-1" name="review[rating]" value="1" />
+        <label for="rate-1">1 star</label>
+
+        <input type="radio" id="rate-2" name="review[rating]" value="2" />
+        <label for="rate-2">2 stars</label>
+
+        <input type="radio" id="rate-3" name="review[rating]" value="3" />
+        <label for="rate-3">3 stars</label>
+
+        <input type="radio" id="rate-4" name="review[rating]" value="4" />
+        <label for="rate-4">4 stars</label>
+
+        <input type="radio" id="rate-5" name="review[rating]" value="5" />
+        <label for="rate-5">5 stars</label>
+      </fieldset>
+    </div>
+
+    <!-- Comment -->
+    <div class="form-group mt-4">
+      <label for="comment" class="form-label">Your Experience</label>
+      <textarea name="review[comment]"
+                id="comment"
+                rows="4"
+                class="form-control custom-textarea"
+                placeholder="Share your experience..."
+                required></textarea>
+    </div>
+
+    <div class="text-end mt-4">
+      <button class="submit-review-btn">Submit Review</button>
+    </div>
+
+  </form>
+
+</div>
+    <hr />
+    <%# } %> <% if(listing.reviews.length > 0) {%>
+      <h4 class="mb-4">All Reviews</h4>
+
+<div class="reviews-container">
+
+  <% for (let review of listing.reviews) { %>
+
+    <div class="review-card">
+
+      <div class="review-top">
+        <div class="review-user">
+          <div class="avatar">
+            <%= review.author.username.charAt(0).toUpperCase() %>
+          </div>
+          <div>
+            <div class="username">@ <%= review.author.username %></div>
+            <div class="review-date">
+              <%= review.createdAt.toDateString() %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-rating">
+        <p class="starability-result"
+           data-rating="<%= review.rating %>">
+        </p>
+      </div>
+
+      <div class="review-text">
+        <%= review.comment %>
+      </div>
+
+      <% if (currUser && review.author._id.equals(currUser._id)) { %>
+      <div class="review-actions">
+        <form method="POST"
+              action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+          <button class="delete-btn">Delete</button>
+        </form>
+      </div>
+      <% } %>
+
+    </div>
+
+  <% } %>
+
+</div>
+    <%}%>
+  </div>
+  <div class="col-8 offset-2 mb-3">
+    <h3>Where you'll be</h3>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="/js/map.js"></script>

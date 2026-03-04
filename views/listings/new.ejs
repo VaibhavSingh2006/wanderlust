@@ -1,0 +1,152 @@
+<% layout("./layouts/boilerplate") -%>
+
+<body>
+  <div class="listing-overlay">
+    <div class="listing-g-card">
+      <div class="listing-header">
+        <i class="fa-solid fa-house listing-icon"></i>
+        <h2>Add Listing</h2>
+      </div>
+
+      <form
+        method="POST"
+        action="/listings"
+        class="listing-form needs-validation"
+        novalidate
+        enctype="multipart/form-data"
+      >
+        <!-- TITLE -->
+        <div class="lf-group">
+          <label>Title</label>
+          <input
+            type="text"
+            name="listing[title]"
+            class="form-control"
+            placeholder="Title"
+            required
+          />
+          <div class="invalid-feedback">Please enter a title.</div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="lf-group">
+          <label>Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            rows="3"
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please enter a description.</div>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="lf-group">
+          <label>Upload Image</label>
+          <input
+            type="file"
+            name="listing[image]"
+            class="form-control"
+            accept="image/*"
+            required
+          />
+          <div class="invalid-feedback">Please upload an image.</div>
+        </div>
+
+        <!-- PRICE & CATEGORY -->
+        <div class="lf-row">
+          <div class="lf-group half">
+            <label>Price per night</label>
+            <input
+              type="number"
+              name="listing[price]"
+              class="form-control"
+              placeholder="Price"
+              min="1"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="lf-group half">
+            <label>Category</label>
+            <select name="listing[category]" class="form-select" required>
+              <option value="" disabled selected>Select category</option>
+              <option value="trending">🔥 Trending</option>
+              <option value="rooms">🛏 Rooms</option>
+              <option value="iconic">🏙 Iconic Cities</option>
+              <option value="mountain">🏔 Mountain</option>
+              <option value="castles">🏰 Castles</option>
+              <option value="pools">🏊 Amazing Pools</option>
+              <option value="camping">🏕 Camping</option>
+              <option value="farms">🚜 Farms</option>
+              <option value="arctic">❄ Arctic</option>
+              <option value="domes">🧊 Domes</option>
+              <option value="boats">🚤 Boats</option>
+              <option value="forest">🌲 Forest</option>
+              <option value="lakefront">🌊 Lakefront</option>
+              <option value="beach">🏖 Beach</option>
+              <option value="urban">🏙 Urban</option>
+              <option value="countryside">🏡 Countryside</option>
+            </select>
+            <div class="invalid-feedback">Please select a category.</div>
+          </div>
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="lf-group">
+          <label>Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            class="form-control"
+            placeholder="Country"
+            required
+          />
+          <div class="invalid-feedback">Please enter country name.</div>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="lf-group">
+          <label>Location</label>
+          <input
+            type="text"
+            name="listing[location]"
+            class="form-control"
+            placeholder="Location"
+            required
+          />
+          <div class="invalid-feedback">Please enter location.</div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="listing-submit-btn">ADD</button>
+
+        <br /><br />
+      </form>
+    </div>
+  </div>
+
+  <!-- BOOTSTRAP VALIDATION SCRIPT -->
+  <script>
+    (() => {
+      "use strict";
+
+      const forms = document.querySelectorAll(".needs-validation");
+
+      Array.from(forms).forEach((form) => {
+        form.addEventListener(
+          "submit",
+          (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+          },
+          false
+        );
+      });
+    })();
+  </script>
+</body>
