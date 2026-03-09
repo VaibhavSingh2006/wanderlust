@@ -6,6 +6,16 @@ The platform supports user authentication, listing management, reviews, and secu
 
 ---
 
+## 🌟 Project Highlights
+
+- Full-stack MERN-style architecture
+- Secure authentication and authorization
+- Interactive travel exploration experience
+- AI chatbot for user assistance
+- Cloud-based image storage and database.
+
+---
+
 ## 🚀 Live Features
 
 - 🔐 User authentication & authorization (Passport.js)
@@ -16,11 +26,25 @@ The platform supports user authentication, listing management, reviews, and secu
 - 🚫 Owners cannot book their own listings
 - 🗺 Interactive map integration
 - 💬 Flash messages for user feedback
+- 🤖 AI Chatbot assistant to help users discover and search the best stays
 - ☁ MongoDB Atlas cloud database
 - 🎨 Responsive UI with Bootstrap
 
 ---
 
+## 🤖 AI Travel Assistant (Chatbot)
+
+Wanderlust includes an integrated chatbot that helps visitors explore the platform more easily.
+
+### Features
+- Suggests travel destinations
+- Helps users discover the best stays
+- Answers user queries about listings
+- Provides quick guidance while browsing the platform
+
+The chatbot improves the user experience by acting as a virtual travel assistant.
+
+---
 
 ## ScreenShots
 
@@ -90,7 +114,11 @@ WANDERLUST/
 │
 ├── public/
 │   ├── css/
+│   │
 │   ├── js/
+│   │   ├── chatbot.js        # chatbot logic for assisting users
+│   │   └── main.js           # main frontend scripts
+│   │
 │   └── images/
 │
 ├── routes/
@@ -104,16 +132,22 @@ WANDERLUST/
 │
 ├── views/
 │   ├── bookings/
+│   │
 │   ├── includes/
+│   │   └── chatbot.ejs       # chatbot UI component
+│   │
 │   ├── layouts/
 │   │   └── boilerplate.ejs
+│   │
 │   ├── listings/
 │   │   ├── index.ejs
 │   │   ├── show.ejs
 │   │   ├── new.ejs
 │   │   └── edit.ejs
+│   │
 │   ├── users/
 │   │   └── profile.ejs
+│   │
 │   └── error.ejs
 │
 ├── .env
