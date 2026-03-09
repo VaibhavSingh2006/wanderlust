@@ -6,6 +6,14 @@ The platform supports user authentication, listing management, reviews, and secu
 
 ---
 
+## 🌐 Links
+
+Live Application: https://wanderlust-gov5.onrender.com
+
+GitHub Repository: https://github.com/VaibhavSingh2006/Wanderlust
+
+---
+
 ## 🌟 Project Highlights
 
 - Full-stack MERN-style architecture
@@ -50,7 +58,17 @@ The chatbot improves the user experience by acting as a virtual travel assistant
 
 ## Desktop view
 
-<img width="1909" height="910" alt="Screenshot 2025-12-29 101751" src="https://github.com/user-attachments/assets/469b3e62-b025-46ba-a811-a3c900d71e3a" border="2px solid white"/>
+<img width="1437" height="812" alt="Screenshot 2026-03-10 at 3 37 11 AM" src="https://github.com/user-attachments/assets/1e7e99f4-b94d-4d97-8371-4769a9e06077" />
+
+<img width="1435" height="804" alt="Screenshot 2026-03-10 at 3 37 27 AM" src="https://github.com/user-attachments/assets/60c75340-2000-4bcf-9422-aa4a8fa2bc5e" />
+
+<img width="1436" height="812" alt="Screenshot 2026-03-10 at 3 37 48 AM" src="https://github.com/user-attachments/assets/795d6292-daf3-40b1-866d-b73703f43bde" />
+
+<img width="434" height="726" alt="Screenshot 2026-03-10 at 3 34 05 AM" src="https://github.com/user-attachments/assets/5fe57f1a-1e23-48dd-a026-a4c707a6af7f" />
+
+<img width="1438" height="815" alt="Screenshot 2026-03-10 at 3 39 02 AM" src="https://github.com/user-attachments/assets/4d239360-5887-407f-b3b3-2c67104c2dab" />
+
+<img width="1432" height="812" alt="Screenshot 2026-03-10 at 3 38 20 AM" src="https://github.com/user-attachments/assets/dd2da21f-c3a4-49ee-986c-437cfcec9fbd" />
 
 ## Mobile view
 
