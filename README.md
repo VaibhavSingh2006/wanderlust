@@ -267,6 +267,7 @@ Trending, Rooms, Castles, Farms, Arctic, Camping, Forest, Lakefront, Beach, Coun
 ## 👨‍💻 Author
 
 Vaibhav Singh
+IIT Dhanbad
 GitHub: https://github.com/VaibhavSingh2006
 
 
