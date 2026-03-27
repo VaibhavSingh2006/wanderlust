@@ -1,4 +1,4 @@
-# 🏡 Wanderlust – Travel & Stay Booking Platform
+# 🏡 Wanderlust – Travel & Stay Booking Platform 
 
 Wanderlust is a full-stack travel accommodation booking platform that allows users to explore, list, and book unique stays across multiple categories such as beach houses, countryside cottages, forest cabins, castles, igloos, farm stays, camping sites, lakefront homes, and more.
 
