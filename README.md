@@ -8,7 +8,7 @@ The platform supports user authentication, listing management, reviews, and secu
 
 ## 🌐 Links
 
-Live Application: https://wanderlust-gov5.onrender.com
+Live Application: [https://wanderlust-gov5.onrender.com](https://wanderlust-gov5.onrender.com)
 
 GitHub Repository: https://github.com/VaibhavSingh2006/Wanderlust
 
