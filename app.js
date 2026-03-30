@@ -16,6 +16,7 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const bookingRoutes = require("./routes/bookings");
+const paymentRoutes = require("./routes/payment");
 
 const session = require("express-session");// required express-session
 const { default: MongoStore } = require("connect-mongo");
@@ -26,7 +27,7 @@ const localStrategy = require("passport-local"); // username + email + pass
 const User = require("./models/user.js");
 
 const dburl = process.env.ATLASDB_URL;
-
+console.log("DB URL:", dburl);
 const store = MongoStore.create({
   mongoUrl: dburl,
   crypto: {
@@ -133,6 +134,14 @@ app.use("/", userRouter);
 app.use("/", bookingRoutes);
 const aiRoutes = require("./routes/ai");
 app.use("/ai", aiRoutes);
+app.use("/payment", paymentRoutes);
+app.get("/payment-success", (req, res) => {
+  console.log("Payment success route hit");
+  res.redirect("/profile");
+});
+app.get("/booking-success", (req, res) => {
+  res.render("bookings/success");
+});
 
 app.use((err, req, res, next) => {
   let { message = "something went wrong", statuscode = 500 } = err;

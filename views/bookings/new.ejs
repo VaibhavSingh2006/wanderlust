@@ -101,7 +101,7 @@
     <p><b>Guest:</b> <span><%= user.username %></span></p>
   </div>
 
-  <form action="/listings/<%= listing._id %>/book" method="POST">
+  <form id="bookingForm" action="/listings/<%= listing._id %>/book" method="POST">
     <label>Check-in</label>
     <input
       type="date"
@@ -141,7 +141,9 @@
       </div>
     </div>
 
-    <button class="btn btn-confirm w-100 mt-3">Confirm Booking</button>
+    <button type="button" onclick="payNow(Number(totalEl.innerText))" class="btn btn-confirm w-100 mt-3">
+  Confirm Booking
+</button>
   </form>
 </div>
 
@@ -185,4 +187,42 @@
 
   startDateInput.addEventListener("change", calculatePrice);
   endDateInput.addEventListener("change", calculatePrice);
+</script>
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+<script>
+async function payNow(totalAmount) {
+
+  if (!totalAmount || totalAmount <= 0) {
+    alert("Please select valid dates first");
+    return;
+  }
+
+  const response = await fetch("/payment/create-order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      amount: totalAmount
+    })
+  });
+
+  const data = await response.json();
+
+  const cashfree = Cashfree({
+    mode: "sandbox"
+  });
+
+  cashfree.checkout({
+    paymentSessionId: data.paymentSessionId,
+    redirectTarget: "_modal"
+  }).then(function(result) {
+
+    if (result.paymentDetails) {
+      // payment success → trigger your existing booking route
+      document.getElementById("bookingForm").submit();
+    }
+
+  });
+}
 </script>

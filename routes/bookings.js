@@ -50,7 +50,7 @@ router.post(
 
         await booking.save();
         req.flash("success", "🎉 Booking confirmed!");
-        res.redirect("/profile");
+        res.redirect("/booking-success");
     })
 );
 
@@ -79,10 +79,16 @@ router.get(
     })
 );
 
-router.delete("/bookings/:id", isLoggedIn, async(req, res) => {
+router.delete("/bookings/:id", isLoggedIn, async (req, res) => {
+
     const booking = await Booking.findById(req.params.id);
 
-    // Security check: only owner can delete
+    if (!booking) {
+        req.flash("error", "Booking not found");
+        return res.redirect("/profile");
+    }
+
+    // Security check
     if (!booking.user.equals(req.user._id)) {
         req.flash("error", "Unauthorized action");
         return res.redirect("/profile");
@@ -91,6 +97,7 @@ router.delete("/bookings/:id", isLoggedIn, async(req, res) => {
     await Booking.findByIdAndDelete(req.params.id);
 
     req.flash("success", "Booking cancelled successfully");
+
     res.redirect("/profile");
 });
 
