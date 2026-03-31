@@ -21,6 +21,7 @@ GitHub Repository: https://github.com/VaibhavSingh2006/Wanderlust
 - Interactive travel exploration experience
 - AI chatbot for user assistance
 - Cloud-based image storage and database.
+- 💳 Integrated payment system
 
 ---
 
