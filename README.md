@@ -163,6 +163,7 @@ The chatbot improves the user experience by acting as a virtual travel assistant
 - Multer (file uploads)
 - Cloudinary (image storage)
 - Map API (location display)
+- Cashfree (Payment Gateway)
 
 ---
 
