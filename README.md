@@ -85,6 +85,15 @@ CASHFREE_SECRET_KEY=your_cashfree_secret_key
 * No sensitive data is exposed on the frontend
 * Server-side validation ensures safe transactions
 
+---
+## Desktop view
+<img width="1435" height="809" alt="Screenshot 2026-03-31 at 5 09 24 AM" src="https://github.com/user-attachments/assets/f5a51cc1-19b2-43e8-a8d6-8cfc48b93376" />
+
+<img width="530" height="634" alt="Screenshot 2026-03-31 at 5 12 13 AM" src="https://github.com/user-attachments/assets/9d8d7c55-32ae-4f3b-8020-c6fecc8cb38f" />
+
+<img width="1181" height="646" alt="Screenshot 2026-03-31 at 5 44 34 AM" src="https://github.com/user-attachments/assets/73784e42-4596-4e9e-a62c-28d30070ea83" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-31 at 5 12 22 AM" src="https://github.com/user-attachments/assets/249d6897-0593-45e3-9393-c97cf1b62487" />
 
 ---
 
