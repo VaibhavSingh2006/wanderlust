@@ -3,16 +3,14 @@ const expresserror = require("../utils/expresserror.js");
 
 module.exports.index = async (req, res) => {
   
-
-  
   const { q, category } = req.query;
   const query = {};
 
-  if (category && category.trim() !== "") {
+  if (category) {
     query.category = { $regex: new RegExp(`^${category}$`, "i") };
   }
 
-  if (q && q.trim() !== "") {
+  if (q) {
     query.$or = [
       { title: { $regex: q, $options: "i" } },
       { location: { $regex: q, $options: "i" } },
@@ -22,8 +20,6 @@ module.exports.index = async (req, res) => {
 
   // ✅ SIMPLE & FAST
   const allListings = await Listing.find(query);
-  console.log("QUERY:", query); 
-  console.log("TOTAL LISTINGS:", allListings.length);
 
   const userWishlist = req.user ? req.user.wishlist || [] : [];
 

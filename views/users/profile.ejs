@@ -216,8 +216,12 @@
     <div class="grid">
       <% bookings.forEach(b => { %>
       <div class="card">
-        <img src="<%= b.listing.image.url %>" />
-        <h5><%= b.listing.title %></h5>
+        <% if (b.listing && b.listing.image) { %>
+  <img src="<%= b.listing.image.url %>" />
+  <h5><%= b.listing.title %></h5>
+<% } else { %>
+  <p style="padding:10px;">⚠️ Listing deleted</p>
+<% } %>
         <p>
           <%= b.startDate.toDateString() %> → <%= b.endDate.toDateString() %>
         </p>
@@ -233,7 +237,9 @@
               <button class="btn btn-cancel">Cancel Booking</button>
             </form>
           </div>
-          <a href="/listings/<%=b.listing._id %>" class="btn btn-info">View</a>
+          <% if (b.listing) { %>
+  <a href="/listings/<%= b.listing._id %>" class="btn btn-info">View</a>
+<% } %>
         </div>
       </div>
       <% }) %>

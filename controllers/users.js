@@ -69,9 +69,10 @@ module.exports.profile = async (req, res) => {
     _id: { $in: req.user.wishlist || [] },
   });
 
-  const bookings = await Booking.find({ user: req.user._id }).populate(
-    "listing"
-  );
+  let bookings = await Booking.find({ user: req.user._id }).populate("listing");
+
+  // ✅ FIX: remove bookings with deleted listings
+  bookings = bookings.filter(b => b.listing !== null);
   const myListings = await Listing.find({ Owner: req.user._id });
 
   res.render("users/profile.ejs", {
