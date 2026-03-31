@@ -40,6 +40,54 @@ GitHub Repository: https://github.com/VaibhavSingh2006/Wanderlust
 
 ---
 
+## 💳 Payment Integration
+
+Wanderlust integrates secure online payments using Cashfree.
+
+### 🚀 Features
+
+* Secure payment processing using Cashfree API
+* Sandbox (test mode) support for development
+* Backend-based order creation
+* Booking confirmed only after successful payment
+* Automatic redirect after payment completion
+
+---
+
+### 🔄 Payment Flow
+
+User clicks "Confirm Booking"
+↓
+Frontend sends request to backend
+↓
+Backend creates order using Cashfree API
+↓
+User completes payment
+↓
+Redirect to success page
+↓
+Booking saved in database
+
+---
+
+### ⚙️ Environment Variables
+
+```
+CASHFREE_APP_ID=your_cashfree_app_id
+CASHFREE_SECRET_KEY=your_cashfree_secret_key
+```
+
+---
+
+### 🛡️ Security
+
+* Payment keys are stored securely using environment variables
+* No sensitive data is exposed on the frontend
+* Server-side validation ensures safe transactions
+
+
+---
+
 ## 🤖 AI Travel Assistant (Chatbot)
 
 Wanderlust includes an integrated chatbot that helps visitors explore the platform more easily.
