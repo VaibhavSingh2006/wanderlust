@@ -33,7 +33,7 @@ const store = MongoStore.create({
   crypto: {
     secret: process.env.SECRET,
   },
-  touchAfter: 24 * 60 * 60, // to conyue login we refresh the page
+  touchAfter: 24 * 60 * 60, 
 });
 
 store.on("error", () =>{
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
   next();
 });
 //passport
-app.use(passport.initialize());// used to initialize passport
+app.use(passport.initialize());
 app.use(passport.session()); // so that it do not ask log in at each pages of same website means only one time login
 passport.use(new localStrategy(User.authenticate()));// each time a new user came must first login using some strategy
 
