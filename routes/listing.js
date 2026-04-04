@@ -10,7 +10,7 @@ const multer = require("multer");
 const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 
-// New route for infinite scroll data
+
 router.get("/data", wrapAsync(listingController.getListingsData));
 
 //Router .routes =>we can combine multiple routes with same path
