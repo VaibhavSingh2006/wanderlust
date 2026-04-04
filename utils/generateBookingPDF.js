@@ -18,10 +18,10 @@ module.exports.generateBookingPDF = ({
 
   doc.pipe(res);
 
-  /* ===== BORDER ===== */
+ 
   doc.rect(20, 20, 555, 800).lineWidth(1).stroke("#1e4fa1");
 
-  /* ===== HEADER ===== */
+  
   doc
     .fontSize(26)
     .fillColor("#1e4fa1")
@@ -42,14 +42,14 @@ module.exports.generateBookingPDF = ({
   doc.moveDown();
   doc.moveTo(40, doc.y).lineTo(555, doc.y).stroke("#cfd8e3");
 
-  /* ===== BOOKING TITLE ===== */
+ 
   doc.moveDown();
   doc
     .fontSize(20)
     .fillColor("#1e4fa1")
     .text("BOOKING", 420, doc.y - 10);
 
-  /* ===== DETAILS ===== */
+
   let y = doc.y + 20;
   doc.fontSize(11).fillColor("#000");
 
@@ -64,7 +64,7 @@ module.exports.generateBookingPDF = ({
   doc.text(`Booking #: ${bookingId}`, 350, y - 45);
   doc.text(`Status: Confirmed`, 350, y - 30);
 
-  /* ===== TABLE ===== */
+  
   let tableTop = y + 40;
   doc.rect(40, tableTop, 515, 22).fill("#1e4fa1");
 
@@ -90,7 +90,7 @@ module.exports.generateBookingPDF = ({
   doc.fontSize(13).fillColor("#1e4fa1").text(`TOTAL`, 300, rowY);
   doc.text(`₹${booking.totalPrice}`, 420, rowY);
 
-  /* ===== WATERMARK TICK ===== */
+  
   doc
     .fontSize(160)
     .fillColor("rgba(0,180,0,0.08)")
