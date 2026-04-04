@@ -21,7 +21,7 @@ router
   }) // login form
   .post(
     saveRedirectUrl,
-    passport.authenticate("local", { /
+    passport.authenticate("local", { 
       failureRedirect: "/login", 
       failureFlash: true
     }),
