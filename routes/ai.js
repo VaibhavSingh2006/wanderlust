@@ -7,7 +7,7 @@ router.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
 
-    // ✅ Basic validation
+    //  Basic validation
     if (!message || typeof message !== "string") {
       return res.status(400).json({
         error: "Message is required and must be a string."
