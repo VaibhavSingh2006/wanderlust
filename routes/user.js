@@ -10,10 +10,10 @@ const userController = require("../controllers/users.js");
 //router .routes for signup
 router
   .route("/signup")
-  .get(userController.renderSignupform) // signup form
-  .post(wrapAsync(userController.signup)); // signup logic
+  .get(userController.renderSignupform) 
+  .post(wrapAsync(userController.signup)); 
 
-//router. routes for login
+
 router
   .route("/login")
   .get((req, res) => {
@@ -21,14 +21,14 @@ router
   }) // login form
   .post(
     saveRedirectUrl,
-    passport.authenticate("local", { // passport is used to authenticate
-      failureRedirect: "/login", // if login fail it redirect to log in page again
-      failureFlash: true,// then it give a flash
+    passport.authenticate("local", { /
+      failureRedirect: "/login", 
+      failureFlash: true
     }),
     userController.login
-  ); // login logic
+  );
 
-//logout
+
 router.get("/logout", userController.logout);
 
 //wishlist
