@@ -18,7 +18,7 @@ module.exports.index = async (req, res) => {
     ];
   }
 
-  // ✅ SIMPLE & FAST
+ 
   const allListings = await Listing.find(query);
 
   const userWishlist = req.user ? req.user.wishlist || [] : [];
@@ -45,7 +45,7 @@ module.exports.showListings = async (req, res) => {
     return res.redirect("/listings");
   }
 
-  // ✅ avgRating already exists in DB
+ 
   res.render("listings/show.ejs", {
     listing,
     avgRating: listing.avgRating, mapToken: process.env.MAP_TOKEN
