@@ -71,7 +71,7 @@ module.exports.profile = async (req, res) => {
 
   let bookings = await Booking.find({ user: req.user._id }).populate("listing");
 
-  // ✅ FIX: remove bookings with deleted listings
+ 
   bookings = bookings.filter(b => b.listing !== null);
   const myListings = await Listing.find({ Owner: req.user._id });
 
